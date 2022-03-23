@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="PT">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ProUni</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- font of button -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+
+  <!-- font of logo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .icons {
+      width: 15px;
+      height: 15px;
+    }
+
+    .icon-user {
+      width: 23px;
+      height: 23px;
+    }
+
+    .border-button {
+      border-radius: 50px;
+    }
+
+    .margin-header {
+      margin-top: 1vh;
+    }
+
+    button {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 300;
+    }
+
+    .blue {
+      color: rgb(56, 94, 197);
+    }
+
+    .yellow {
+      color: rgba(255, 186, 36, 0.911);
+    }
+
+    .green {
+      color: rgb(15, 148, 15);
+    }
+
+    .logo {
+      font-family: 'Fredoka One', cursive;
+      letter-spacing: 0px;
+    }
+
+    ul {
+      font-size: 15px;
+    }
+
+    @media (min-width:576px) {
+      .logo {
+        font-size: 45px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- BREAKPOINTS NO BOOTSTRAP
+    
+  X-Small	None	<576px alert=("esse Você IGNORA pois o bootstrap trabalha com mobile first então ele é o padrão")
+  Small	sm	≥576px [mesmo que: @media(min-width:576px){  }]
+  Medium	md ≥768px [mesmo que: @media(min-width:768px){  }]
+  Large	lg	≥992px [mesmo que: @media(min-width:992px){  }]
+  Extra large	xl	≥1200px [mesmo que: @media(min-width:1200px){  }]
+  Extra extra large	xxl	≥1400px [mesmo que: @media(min-width:1400px){  }]
+
+
+
+  ALGUMAS DAS TAGS DO PROJETO E SEUS SIGNIFICADOS:
+
+  ml = margin-left
+  px = padding-x
+  m = margin 
+  mt = margin-top
+  mx= margin-x
+  mr= margin-right
+  d = display
+--> 
+
+
+
+
+
+  <!-- Aqui começa tudo, O MENU funciona do seguinte modo:
+
+
+
+   _______________________________________________________________________________________________________________________________________________________________________________
+  |LOGO:para fazer cada letra com cor diferente,coloquei cada uma dentro de um span(caso não saiba o que é, funciona como uma div porém não tem margem,nem padding,é como se fosse
+  |uma div porém sem dimensões)adiicionando a classe com a cor desejejada em cada span/letra._
+  |_______________________________________________________________________________________________________________________________________________________________________________
+ 
+ 
+ 
+ 
+  __________________________________________________________________________________________________________________________________________________________________________________
+  |MENU MOBILE: como ja disse antes o bootstrap trabalha com mobile first, então irei esplicar o mobile primeiro, usei header como uma div principal que guarda tudo dentro dela|
+  |apliquei display flex a alinhei os itens ao centro com um justfy-contente betwenn que vai do mobile-até uma tela de tablet, a partir daí |
+  |eu adicionei um justfy content space-around|
+  |para telas grandes.|
+  |
+  |_EXEMPLO_>>> 
+  |
+  |   <header class="d-flex align-items-center justify-content-between justify-content-xl-around margin-header ">
+  |  
+  |justfy-content-between(aqui ele vai colocar justfy-content-between para todas as telas a partir de 0px pois o bootstrap trabalha com mobile first
+  |seria o mesmo que:
+  |@media (min-width:0px){
+  |  header{
+  |    justfy-content: space-between
+  |  }
+  |}
+  |porém eu fiz uma alteração com o justify-content-xl-around, lembra os breakpoints la em cima? com esse "justify-content-xl-around" eu estou falando que a partir de 1200px eu quero
+  |que o justfy content fique no modo around, no bootsrap a responsividade de tudo funciona desse jeito colocando a sigla do breakpoint no meio da tag por exemplo: 
+  |
+  | <button class=" d-flex d-sm-inline d-md-none d-lg-block"> Olá isso é um exemplo </button>
+  |
+  | o button ficaria com display flex em todas as telas por o bootstrap ser mobile first, porém como adicionei d-sm-inline a partir dessa medida(caso não se lembre volte aos
+  | breakpoints) ele ficará como display inline, quando chegar em md, irá desaparecer pois deixei como display none e por fim em lg ficará como block(obs: o display block também
+  | se aplicará ao xl e xxl pois não defini nenhum display pra eles então vão utilizar a ultima alteração feita, seria o mesmo que fazer um @media(min-width:992px){ }
+  |
+  |
+  | por fim o código em bootstrap ficaria como>>> <button class=" d-flex d-sm-inline d-md-none d-lg-block"> Olá isso é um exemplo </button>
+  | e o código em css puro ficaria:
+  |
+  | @media(min-width:0px){ 
+  | button{
+  |    display:flex
+  |  }
+  |}
+  |
+  | @media(min-width:576px){ 
+  | button{
+  |    display:inline;
+  |  }
+  |}
+  | @media(min-width:768px){ 
+  | button{
+  |    display:none;
+  |  }
+  |}
+  |
+  | @media(min-width:992px){ 
+  | button{
+  |    display:block;
+  |  }
+  |}
+  |__________________________________________________________________________________________________________________________________________________________________________________
+
+
+   _______________________________________________________________________________________________________________________________________________________________________________
+  |TROCA DE MENU MOBILE PARA DESKTOP:como explicado acima basta voce utilizar as siglas dos brakpoints nas tags para a responsiviidade então oque eu fiz foi: criar 2 menus
+  | um mobile e um desktop e simplesmente, quando a tela passa de certo tamanho o menu mobile desaparece o menuu desktop é revelado.
+  |
+  | EXEMPLO:
+  | <menuMobile class="d-flex d-xl-none"> </menuMobile>
+  | <menuDesktop class="d-none d-xl-flex"> <\menuDesktop>
+  |
+  | EXPLICAÇÂO: o menu mobile começa com display flex em todas as telas, e quando a tela for >=xl ele ficará como display none, enquanto o menu desktop começa com display none
+  | para todas as telas e a partir de xl ele fica visível com display flex.
+  |______________________________________________________________________________________________________________________________________________________________________
+ 
+-->
+
+  <header class="d-flex align-items-center justify-content-between justify-content-xl-around margin-header ">
+
+    <div class=" d-flex align-items-center justify-content-between ml-md-4 px-3">
+      <h4 class="m-0 logo"><span class="blue">g</span><span class="yellow">o</span><span class="green">v</span><span
+          class="blue">.</span><span class="blue">b</span><span class="yellow">r</span></h4>
+      <h6 class="h6 ml-3 mt-3 d-none d-md-inline">Governo Federal</h6>
+    </div>
+
+    <div class="d-flex align-items-center justify-content-center mr-md-5 mr-lg-3 d-xl-none">
+
+      <img class="icons mr-3" src="./images/menu.png" alt="">
+      <div style="background-color: grey; width: 1px; height: 30px;">
+
+      </div>
+      <img class="icons mx-3" src="./images/grid (1).png" alt="">
+
+      <button class="btn btn-light d-flex align-items-center justify-content-around border-button mr-2 mr-md-5"> <img
+          class="icon-user mr-2" src="./images/user.png" alt=""><span style="font-size: 18px;">Entrar</span></button>
+    </div>
+
+    <ul class=" d-none d-xl-flex nav align-items-center mr-3">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Órgãos do Governo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Acesso a informação</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Legislação</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link border border-bottom-0 border-left-0 border-top-0 border-secondary"
+          href="#">Acessibilidade</a>
+      </li>
+      <li class="nav-item ml-3">
+        <img src="./images/lampada.png" alt="">
+      </li>
+      <li class="nav-item ml-3">
+        <button class=" d-flex align-items-center justify-content-around btn btn-light border-button mr-2 mr-md-5"> <img
+            class="icon-user mr-2" src="./images/user.png" alt=""><span style="font-size: 18px;">Entrar</span></button>
+      </li>
+    </ul>
+  </header>
+
+
+  <!-- script of bootstrap and JQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
